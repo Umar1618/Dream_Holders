@@ -3,241 +3,399 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+  <script src="https://kit.fontawesome.com/ad9fe6a2af.js" crossorigin="anonymous"></script>
   <title>Dream Holder's</title>
   <style>
-    *{
+    :root {
+      --primary-background-color: #070c20;
+      --secondary-background-color: #0a3f69;
+      --primary-color: #3ee8e5;
+      --overlay-color: hsla(210, 30%, 8%, 0.8);
+      --primary-font-color: #fff;
+      --secondary-font-color: #f4f4f9;
+      --tertiary-font-color: #000;
+      --border-color: rgba(255,255,255,0.4);
+      --menu-speed: 0.75s;
+    }
+    .light {
+      --primary-background-color: #fff;
+      --secondary-background-color: #f4f4f9;
+      --overlay-color: rgba(255, 255, 255, 0.8);
+      --primary-font-color: #070c20;
+      --secondary-font-color: #0a3f69;
+      --border-color: hsla(210, 30%, 8%, 0.4);
+    }
+    * {
       margin: 0;
+      padding: 0;
       outline: none;
       box-sizing: border-box;
       list-style: none;
       text-decoration: none;
     }
-    body{
+    body  {
       font-family: 'Roboto', sans-serif;
     }
-    nav{
+    nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 70px;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 99;
+      transition: 0.6s;
     }
-    nav .logo{
+    nav .logo {
       padding-left: 20px;
     }
-    nav .logo h2{
-      color: #374e58;
+    nav .logo h2 {
+      color: var(--tertiary-font-color);
     }
-    #nav-section .toggler{
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      z-index: 5;
-      cursor: pointer;
-      width: 50px;
-      height: 50px;
-      opacity: 0;
+    nav .toggler, .hamburger > div {
+      display: none;
     }
-    #nav-section .hamburger{
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 4;
-      width: 30px;
-      height: 26px;
-      display: flex;
+    nav .hamburger {
+      display: none;
+    }
+    nav .nav-links {
       align-items: center;
-      justify-content: center;
-    }
-    #nav-section .hamburger > div{
-      position: relative;
-      width: 100%;
-      height: 3px;
-      background: #fff;
-      border-radius: 3px;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s ease;
-    }
-    #nav-section .hamburger > div::before,
-    #nav-section .hamburger > div::after{
-      content: '';
-      position: absolute;
-      z-index: 4;
-      border-radius: 3px;
-      top: -10px;
-      width: 100%;
-      height: 3px;
-      background: inherit;
-    }
-    #nav-section .hamburger > div::after{
-      top: 10px;
-    }
-    #nav-section .toggler:checked + .hamburger > div {
-      transform: rotate(135deg);
-    }
-    #nav-section .toggler:checked + .hamburger > div::before,
-    #nav-section .toggler:checked + .hamburger > div::after {
-      top: 0;
-      transform: rotate(90deg);
-    }
-    #nav-section .toggler:checked:hover + .hamburger > div{
-      transform: rotate(225deg);
-    }
-    nav .nav-links{
-      padding-right: 70px;
       display: flex;
+      padding: 0;
     }
-    nav .nav-links a{
+    nav .nav-links li a {
       display: block;
       width: 100px;
       height: 70px;
-      float: left;
-      border-left: 1px solid rgba(255,255,255,0.4);
+      border-left: 1px solid var(--border-color);
       line-height: 70px;
       text-align: center;
-      color: #fff;
+      color: var(--primary-font-color);
       transition: all ease 0.5s;
     }
-    nav .nav-links a:hover{
-      background-color: #36d2c7;
-      box-shadow: -5px 10px 40px #36d2c7;
-      color: #fff;
+    nav .nav-links li a:hover {
+      background-color: var(--primary-color);
+      box-shadow: -5px 10px 40px var(--primary-color);
+      color: var(--primary-font-color);
     }
-    #box1{
+    nav .nav-links > div {
+      border-left: 1px solid var(--border-color);
+      height: 70px;
+      width: 70px;
+      padding: 22px 9px;
+    }
+    .label {
+      background-color: var(--primary-font-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      position: relative;
+      border-radius: 50px;
+      width: 50px;
+      height: 26px;
+      cursor: pointer;
+    }
+    .checkbox {
+      opacity: 0;
+      position: absolute;
+    }
+    .ball {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      border-radius: 50%;
+      width: 21px;
+      height: 21px;
+      background-color: var(--primary-background-color);
+      transition: transform 0.2s linear;
+    }
+    .checkbox:checked + .label .ball {
+      transform: translateX(23px);
+    }
+    .fa-moon {
+      color: var(--primary-background-color);
+    }
+    .fa-sun {
+      color: var(--primary-background-color);
+    }
+    nav.sticky {
+      background: var(--secondary-background-color);
+    }
+    nav.sticky h2 {
+      color: var(--primary-font-color);
+    }
+    nav.sticky .hamburger > div {
+      background-color: var(--primary-font-color);
+    }
+    #box1 {
       width: 100%;
       top: -100%;
       animation: anim4 2s forwards 3s;
     }
-    @keyframes anim4{
-      from{
+    @keyframes anim4 {
+      from {
         top: -100px;
       }
-      to{
+      to {
         top: 0;
       }
     }
-    header{
-      background-color: #374e58;
+    header {
+      background-color: var(--primary-background-color);
       height: 100vh;
     }
-    #box2{
+    #box2 {
       position: relative;
+      display: flex;
+      flex-direction: column;
       left: -100%;
       width: 55%;
       height: 100%;
-      float: left;
-      background-color: #36d2c7;
-      padding: 100px 70px 0;
-      align-items: center;
-      clip-path: polygon(0 0, 50% 0, 90% 100%, 0 100%);
+      background-color: var(--primary-color);
+      justify-content: space-around;
+      padding: 100px 70px;
+      clip-path: polygon(0 0, 100% 0, 50% 125%, 0 200%);
       animation: anim3 2s forwards 3s;
     }
-    #box2 h1{
-      font-size: 90px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 100px;
+    #box2 h2 {
+      font-size: 36px;
+      text-transform: uppercase;
+      line-height: 50px;
+      font-weight: 700;
+      color: var(--tertiary-font-color);
     }
-    #box2 p{
-      color: #fff;
-      line-height: 28px;
-      padding: 20px 240px 0 0;
+    #box2 p {
+      color: var(--tertiary-font-color);
+      font-size: 22px;
+      width: 80%;
+      line-height: 35px;
+      font-weight: 500;
     }
     #box2 a {
       display: inline-block;
-      background-color: #374e58;
-      color: #fff;
-      font-size: 22px;
-      padding: 8px;
-      margin: 15px;
-      width: 80px;
-      border-radius: 5px;
+      background-color: var(--secondary-background-color);
+      color: var(--primary-font-color);
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      width: 150px;
+      border-radius: 20px;
       text-align: center;
-      margin-top: 40px;
     }
-    #box2 a:hover{
-      background-color: #fff;
-      box-shadow: -5px 10px 40px #fff;
-      color: #374e58;
+    #box2 a:hover {
+      background-color: var(--primary-font-color);
+      box-shadow: -5px 10px 40px var(--primary-font-color);
+      color: var(--secondary-background-color);
     }
-    @keyframes anim3{
-      from{
+    @keyframes anim3 {
+      from {
         left: -100%;
       }
-      to{
+      to {
           left: 0%;
       }
     }
-    #box3{
+    #box3 {
       width: 40vw;
       height: 70vh;
-      background-image: url('2.jpg');
+      background-image: url('2.png');
       background-position: center;
       background-size: contain;
+      background-repeat: no-repeat;
       position: absolute;
       bottom: -100%;
       left: 30%;
       animation: anim 2s forwards, anim2 2s forwards 3s;
     }
-    @keyframes anim{
-      from{
+    @keyframes anim {
+      from {
         bottom: -100%;
       }
-      to{
+      to {
         bottom: 10%;
       }
     }
-    @keyframes anim2{
-      from{
+    @keyframes anim2 {
+      from {
         left: 30%;
         width: 40vw;
       }
-      to{
+      to {
         width: 40vw;
         left: 50%;
       }
     }
-    #hero-section{
-      height: 150vh;
-      background: var(--primary-background-color);
-    }
-    #hero-section p {
-      padding-top: 10vh;
-      color: var(--primary-font-color);
-    }
+    /* mobile view */
     @media (max-width: 720px) {
-      nav .logo{
+      nav .logo {
         padding-left: 20px;
       }
-      nav .nav-links{
-        display: none;
+      nav .toggler {
+        position: absolute;
+        display: flex;
+        top: 5px;
+        right: 5px;
+        z-index: 5;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
       }
-      #box1{
+      nav .hamburger {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 4;
+        width: 30px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav .hamburger > div {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 3px;
+        background: var(--tertiary-font-color);
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+      }
+      nav .hamburger > div::before,
+      nav .hamburger > div::after {
+        content: '';
+        position: absolute;
+        z-index: 4;
+        border-radius: 3px;
+        top: -10px;
+        width: 100%;
+        height: 3px;
+        background: inherit;
+      }
+      nav .hamburger > div::after {
+        top: 10px;
+      }
+      nav .toggler:checked + .hamburger > div {
+        transform: rotate(135deg);
+        background-color: var(--primary-font-color);
+      }
+      nav .toggler:checked + .hamburger > div::before,
+      nav .toggler:checked + .hamburger > div::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+      nav .toggler:checked:hover + .hamburger > div {
+        transform: rotate(225deg);
+      }
+      nav .nav-links {
+        padding: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        background: var(--overlay-color);
+        opacity: 0;
+        backdrop-filter: blur(8px);
+        transition: opacity .2s;
+      }
+      nav .nav-links li a {
+        color: var(--primary-font-color);
+        letter-spacing: 1px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: unset;
+        border-left: unset;
+        margin-left: 10vw;
+        transform: translateX(-200%);
+        transition-duration: .5s ease-in;
+      }
+      nav .nav-links li a:hover {
+        background-color: unset;
+        box-shadow: unset;
+        color: var(--primary-color);
+      }
+      nav .nav-links > div {
+        margin-left: 10vw;
+        margin-top: 20vw;
+        border: unset;
+        opacity: 0;
+      } 
+      nav .toggler:checked ~ .nav-links {
+        opacity: 1;
+        height: 100vh;
+        padding: 25vh 0;
+        transition: opacity .2s;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(1) a {
+        transform: translateX(0);
+        transition: .6s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(2) a {
+        transform: translateX(0);
+        transition: .8s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(3) a {
+        transform: translateX(0);
+        transition: 1s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(4) a {
+        transform: translateX(0);
+        transition: 1.2s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > div {
+        opacity: 1;
+        transition: opacity 150ms ease-in 1s;
+      }
+      #box1 {
         animation: anim4 2s forwards 1s;
       }
-      #box2{
+      header {
+        height: 160vh;
+      }
+      #box2 {
+        height: 100vh;
         width: 100%;
         padding: 80px 20px;
         clip-path: polygon(0 0, 324% 0, 89% 75%, 0 100%);
         animation: anim3 2s forwards 1s;
       }
-      #box2 p{
-        padding: 20px 0;
+      #box2 h2 {
+        font-size: 30px;
+        line-height: 40px;
       }
-      #box2 a{
-        margin: 25px 2px 0 0;
+      #box2 p {
+        font-size: 22px;
+        line-height: 32px;
+      }
+      #box3 {
+        height: 60vh;
+        width: 80%;
+        margin: 0 10%;
+        bottom: -60%;
+        left: 0;
+        animation: unset;
       }      
-      #box3{
-        display: none;
+      .from-right {
+        transform: translateX(15%);
+        transition: opacity 150ms ease-in, transform 400ms ease-in;
+        opacity: 0;
+      }
+      .from-right.appear {
+        transform: translateX(0);
+        opacity: 1;
       }
     }
+    /* mobile view end */
   </style>
 </head>
 <body>
@@ -245,42 +403,83 @@
     <div class="logo">
       <h2>DreamHolders</h2>
     </div>
+    <input type="checkbox" class="toggler" onmousedown="hamburgerSound.play()">
+    <div class="hamburger">
+      <div></div>
+    </div>
     <ul class="nav-links">
       <li><a href="">Projects</a></li>
       <li><a href="">Team</a></li>
       <li><a href="">About</a></li>
       <li><a href="">Contact</a></li>
+      <div>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onmousedown="switchSound.play()">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
     </ul>
   </nav>
   <header>
     <div id="box2">
-      <h1>Dream<br>Holders</h1>
-      <p>Provident purus ullam curabitur turpis ut dictumst similique per soluta natus quia temporibus nullam, risus nam iaculis laoreet placeat diam.</p>
-      <a href="#"><i class="fa fa-instagram"></i></a>
-      <a href="#"><i class="fa fa-github"></i></a>
-      <a href="#"><i class="fa fa-mail-reply"></i></a>
+      <h2>Do you think a simple pretty website is enough to get good result for your buiseness?</h2>
+      <p>We here to provide you an creative and custom websites that engage users & attracts you at affordable prices!!!</p>
+      <a href="#" onmouseover="hoverSound.play()">Build Yours</a>
+      <!-- <a href="#" onmouseover="hoverSound.play()"><i class="fa fa-github"></i></a>
+      <a href="#" onmouseover="hoverSound.play()"><i class="fa fa-mail-reply"></i></a> -->
     </div>
-    <div id="box3"></div>
+    <div id="box3" class="slide-in from-right"></div>
   </header>
-  <section id="hero-section">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus temporibus illo laborum placeat ex voluptas. Tempora eos error repudiandae deleniti porro, laboriosam harum minima. Atque esse nobis sunt suscipit doloremque.
-    </p>
-  </section> 
+  <script>
+    //  nav  bar effect on scroll
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("nav");
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+    //  nav  bar effect on scroll end
+
+    // theme 
+    const checkbox = document.getElementById('checkbox');
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('light');
+    });
+    // theme end
+    var switchSound = new Audio();
+    switchSound.src = "switchSound.wav" 
+    var hoverSound = new Audio();
+    hoverSound.src = "hoverSound.wav"
+    var hamburgerSound = new Audio();
+    hamburgerSound.src = "hamburgerSound.wav"
+
+    // slide-in section
+    const sliders = document.querySelectorAll(".slide-in");
+
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -250px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptions);
+
+    sliders.forEach(slider => {
+      appearOnScroll.observe(slider);
+    });
+    // slide-in section end
+  </script>
 </body>
 </html>
