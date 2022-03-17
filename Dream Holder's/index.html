@@ -1,0 +1,2996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="logo.jpg">
+  <script src="https://kit.fontawesome.com/ad9fe6a2af.js" crossorigin="anonymous"></script>
+  <title>Dream Holder's</title>
+ <style>
+ 
+    :root {
+      --primary-background-color: #070c20;
+      --secondary-background-color: #0a3f69;
+      --secondary-background-color-blur: #0a3e6996;
+      --primary-color: #3ee8e5;
+      --secondary-color: #fff;
+      --tertiary-color: #000;
+      --primary-newcolor: rgba(9, 218, 207,0.5);
+      --overlay-color: hsla(210, 30%, 8%, 0.8);
+      --primary-font-color: #fff;
+      --secondary-font-color: #f4f4f9;
+      --border-color: rgba(255,255,255,0.4);
+      --menu-speed: 0.75s;
+    }
+    .light {
+      --primary-background-color: #fff;
+      --secondary-background-color:#0a3f69;/* #f4f4f9;*/
+      --primary-newcolor: rgba(9, 63, 151, 0.5);
+      
+      --overlay-color: rgba(255, 255, 255, 0.8);
+      --primary-font-color: #040818;
+      --secondary-font-color: #052e50;
+      --border-color: hsla(210, 30%, 8%, 0.4);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body  {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-background-color);
+    }
+    #box4 {
+      top: -100px;
+      width:100%;
+		  height:30px;
+		  background-color: var(--primary-font-color);
+      position: relative;
+		  display:flex;
+		  text-align:center;
+      animation: anim5 2s forwards 3s;
+    }
+    @keyframes anim5 {
+      from {
+        top: -100px;
+      }
+      to {
+        top: 0;
+      }
+    }
+
+	.top-sec-itm{
+		width:70%;
+		margin-top:5px;
+	}
+	.top-sec-itm a {
+    color: var(--primary-background-color);
+  }
+	.top-icn-logo{
+		display:flex;
+	  justify-content:right;
+		font-size:20px;
+		width:100%;
+		margin-top:5px;
+	}
+	.top-icn-logo i{
+		padding-right:20px;
+    color: var(--primary-background-color);
+	}
+  
+	
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 99;
+      transition: 0.6s;
+	  margin-top:30px;
+    }
+	
+    nav .logo {
+      padding-left: 20px;
+    }
+    nav .logo h2 {
+      color: var(--tertiary-color);
+    }
+    nav .toggler, .hamburger > div {
+      display: none;
+    }
+    nav .hamburger {
+      display: none;
+    }
+    nav .nav-links {
+      align-items: center;
+      display: flex;
+      padding: 0;
+    }
+    nav .nav-links li a {
+      display: block;
+      width: 100px;
+      height: 70px;
+      border-left: 1px solid var(--border-color);
+      line-height: 70px;
+      text-align: center;
+      color: var(--primary-font-color);
+      transition: all ease 0.5s;
+    }
+    nav .nav-links li a:hover {
+      background-color: var(--primary-color);
+      box-shadow: -5px 10px 40px var(--primary-color);
+    }
+    nav .nav-links > div {
+      border-left: 1px solid var(--border-color);
+      height: 70px;
+      width: 70px;
+      padding: 22px 9px;
+      margin-right: 15px;
+    }
+    .label {
+      background-color: var(--primary-font-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      position: relative;
+      border-radius: 50px;
+      width: 50px;
+      height: 26px;
+      cursor: pointer;
+    }
+    .checkbox {
+      opacity: 0;
+      position: absolute;
+    }
+    .ball {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      border-radius: 50%;
+      width: 21px;
+      height: 21px;
+      background-color: var(--primary-background-color);
+      transition: transform 0.2s linear;
+    }
+    .checkbox:checked + .label .ball {
+      transform: translateX(23px);
+    }
+    .fa-moon {
+      color: var(--primary-background-color);
+    }
+    .fa-sun {
+      color: var(--primary-background-color);
+    }
+    nav.sticky {
+      background: var(--secondary-background-color);
+	  margin-top:0;
+    }
+    nav.sticky h2 a{
+      color: var(--secondary-color);
+    }
+    nav.sticky .nav-links li a{
+      color: var(--secondary-color);
+    }
+    nav.sticky .hamburger > div {
+      background-color: var(--secondary-color);
+    }
+    
+    
+    #box1 {
+      width: 100vw;
+      top: -100%;
+      animation: anim5 2s forwards 3s;
+    }
+    @keyframes anim4 {
+      from {
+        top: -100px;
+      }
+      to {
+        top: 0;
+      }
+    }
+    header {
+      background-color: var(--primary-background-color);
+      height: 100vh;
+    }
+    #box2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      left: -100%;
+      width: 55%;
+      height: 100%;
+      background-color: var(--primary-color);
+      justify-content: space-around;
+      padding: 100px 70px;
+      clip-path: polygon(0 0, 100% 0, 50% 125%, 0 200%);
+      animation: anim3 2s forwards 3s;
+    }
+    #box2 h2 {
+      font-size: 36px;
+      text-transform: uppercase;
+      line-height: 50px;
+      font-weight: 700;
+      color: var(--tertiary-color);
+    }
+    #box2 p {
+      color: var(--tertiary-color);
+      font-size: 22px;
+      width: 80%;
+      line-height: 35px;
+      font-weight: 500;
+    }
+    #box2 a {
+      display: inline-block;
+      background-color: var(--secondary-background-color);
+      color: white;
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      width: 150px;
+      border-radius: 20px;
+      text-align: center;
+    }
+    #box2 a:hover {
+      background-color: var(--primary-background-color);
+      box-shadow: -5px 10px 40px var(--primary-background-color);
+    }
+    @keyframes anim3 {
+      from {
+        left: -100%;
+      }
+      to {
+          left: 0%;
+      }
+    }
+    #box3 {
+      width: 40vw;
+      height: 70vh;
+      background-image: url('2.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: -100%;
+      left: 30%;
+      animation: anim 2s forwards, anim2 2s forwards 3s;
+    }
+    @keyframes anim {
+      from {
+        bottom: -100%;
+      }
+      to {
+        bottom: 10%;
+      }
+    }
+    @keyframes anim2 {
+      from {
+        left: 30%;
+        width: 40vw;
+      }
+      to {
+        width: 40vw;
+        left: 50%;
+      }
+    }
+    /* lap view team section*/  
+
+ a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.head {
+  text-align: center;
+}
+.head h3 {
+    color:  var(--primary-font-color);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.head h3::after {
+  content: "";
+  background: rgba(166, 219, 228, 0.767);
+  display: block;
+  width: 120px;
+  height: 5px;
+  margin: 0 auto;
+}
+.head p {
+  display: inline-block;
+  color: var(--secondary-font-color);
+  font-size: 1rem;
+  margin-top: 20px;
+  width: 70%;
+  font-weight: 700;
+}
+.team-section  {
+  padding: 80px 100px 20px;
+  background-color: var(--primary-background-color);
+ 
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  
+}
+.team-section  h1 {
+  text-transform: uppercase;
+  margin-top: 50px;
+  color: cornsilk;
+  text-align: center;
+}
+.title-p {
+  margin-top: 30px;
+  color: whitesmoke;
+  text-align: center;
+}
+.team-section h1:after {
+  content: "";
+  background: rgb(62, 239, 255);
+  width: 120px;
+  height: 5px;
+  margin: 10px auto;
+}
+.mainteam{
+  display:flex;
+ color:rgb(239, 223, 240);
+ align-items: center;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+/*
+.mainteam::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgb(15, 1, 10);
+  clip-path: circle(20% at right 90%);
+}
+.mainteam::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  clip-path: circle(20% at left 10%);
+}*/
+.container{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:40px 0;
+  border-color: rgb(15, 1, 10);
+}
+.container .card{
+  position:relative;
+  width:300px;
+  height:400px;
+  background-color: var(--secondary-background-color);
+  margin:20px;
+  box-shadow: 0 15px 35px rgba(129, 118, 118, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: rgb(15, 1, 10);
+}
+.container .card .content{
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+ /* opacity:0.5;
+  transition:0.5s;*/
+  
+}
+.container .card:hover .content{
+  opacity:1;
+  transition:translateY(-20px);
+}
+.container .card .content .imgbx{
+  position: relative;
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+  box-shadow: rgb(160, 116, 150);
+  overflow: hidden;
+  border:10px solid var(--primary-color);
+    
+}
+.container .card .content .imgbx img{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.container .card .content .contntbx h3{
+text-transform: uppercase;
+letter-spacing: 2px;
+font-weight: 800;
+text-align: center;
+margin:20px 0 10px;
+line-height: 1.1em;
+}
+.container .card .content .contntbx h3 span{
+  font-size: 18px;
+  text-transform: initial;
+  font-weight: 300;
+}
+
+    .container .card .content .contntbx a {
+    display: inline-block;
+    background-color: var(--primary-color);
+      color: var(--primary-background-color);
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      width: 150px;
+      border-radius: 20px;
+      text-align: center;
+}
+.container .card .content .contntbx a:hover {
+      background-color: var(--primary-background-color);
+      color: var(--primary-font-color);
+}
+.container .card .socme {
+position: absolute;
+text-decoration: none;
+list-style: none;
+display:block;
+/*margin-bottom: 70px;*/
+margin-right: -220px;
+justify-content: space-around;
+color:rgba(9, 218, 207,0.5);
+}
+.container .card .socme li i{
+  font-size: 24px;
+  color:white;
+ padding:7px;
+  justify-content: space-between;
+}
+
+.container .card .socme li .--i-1{
+  color:white;
+ 
+margin-top: -30px;
+}
+
+button{
+  background-color:var(--primary-color);
+    
+  align-items: center;
+  padding:10px;
+  margin-top: 20px;
+  margin-left: 30px;
+  border-radius: 20px;
+  color: rgb(10, 8, 8);
+}
+/*lap view team section end*/
+    /*lap view proj sec */
+ a {
+  text-decoration: none;
+  
+}
+
+.head {
+  text-align: center;
+  margin-top: -50px;
+  
+}
+.head h3  {
+    
+  font-size: 2rem;
+  color: var(--primary-font-color);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.head h4{
+   
+  color: blanchedalmond;
+}
+.head h3::after {
+  content: "";
+  background: rgba(166, 219, 228, 0.767);
+  display: block;
+  width: 120px;
+  height: 5px;
+  margin: 0 auto;
+}
+.head p {
+  color: var(--secondary-font-color);
+    margin-top:50px;
+  display: inline-block;
+  color: var(--secondary-font-color);
+  font-size: 1rem;
+ 
+  font-weight: 700;
+    width:100%;
+    text-align:center;
+  
+  
+}
+.project-section  {
+  overflow: hidden;
+  background-color: var(--primary-background-color);
+  
+  padding: 80px 100px 20px;
+ 
+justify-content: center;
+  align-items: center;
+  
+}
+
+/*image slider*/
+.img-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.img-slider .slider-container {
+    position: absolute;
+    width: 300%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    animation: slider 26s infinite;
+}
+.img-slider .slider-container .slide {
+    position: relative;
+    width: 33.33333333%;
+    height: 100%;
+    float: left;
+    overflow: hidden
+}
+.img-slider .slider-container .slide img {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+.slider-container:hover {
+  animation-play-state: paused;
+}
+@keyframes slider {
+    0%, 25%, 100%{left: 0}
+    
+    30%, 55%{left: -100%}
+    
+    60%, 85%{left: -200%}
+}
+
+#projects{
+  margin-top: 60px;
+}
+#projects .items{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    max-width:800px;
+    margin:0 auto;
+    margin-bottom: 15rem;
+}
+#projects .items:nth-child(even){
+    flex-direction: row-reverse;
+}
+#projects .items .left{
+    display:block;
+    flex:1;
+}
+#projects .items .right{
+    display:block;
+    flex:1;
+    margin-left: -150px;
+    background-color:var(--secondary-background-color-blur);
+    padding:3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black;
+    z-index: 2;
+	  height:350px;
+}
+#projects .items:nth-child(even) .right{
+    margin-left:0;
+}
+#projects .items:nth-child(even) .left{
+    margin-left:-150px;
+}
+#projects .items .left .img{
+  width:450px;
+    background-size: contain;
+    background-position:center;
+    height:450px;
+    overflow:hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    position:relative;
+}
+#projects .items .left .img::after{
+    position: absolute;
+    content:"";
+    left:0; 
+    right:0;
+    width: 100%;
+    height:100%;
+ }
+#projects .items .left .img img{
+    object-fit:cover;
+    transition:.3s ease transform;
+}
+#projects .items:hover .left .img img{
+    transform:scale(1.1);
+    z-index:1;
+}
+
+#projects .items .right .proj-title{
+    font-size: 1rem;
+   
+
+}
+#projects .items .right .proj-sub-title{
+    font-size: 1rem;
+ }
+ #projects .items .right .sub-slider{
+
+	margin-top:10px;
+}
+#projects .items .right .slideshow-container {
+  position: relative;
+
+  
+}
+
+/* Slides */
+#projects .items .right .mySlides {
+ /* display: none;*/
+  width:220px;
+  text-align: center;
+  color:white;
+}
+
+.star{
+	color:yellow;
+	font-size:28px;
+	text-align: center;
+		
+}
+.sta{
+	color:white;
+	font-size:28px;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+   
+	
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+#projects .items .right .btn{
+  
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #070c20;
+    padding:10px;
+    color:whitesmoke;
+    margin-left: 70px;
+}
+/*second projject*/
+#projects2{
+    padding:10rem 0;
+    margin-top: -380px;
+}
+#projects2 .items{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    max-width:800px;
+    margin:0 auto;
+    margin-bottom: 15rem;
+}
+#projects2 .items .left{
+    display:block;
+    flex:1;
+    margin-right: -150px;
+    background-color:var(--secondary-background-color-blur);
+    padding:3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    z-index: 2;
+	height:350px;
+}
+#projects2 .items .right{
+    display:block;
+    flex:1;
+    
+}
+#projects2 .items:nth-child(even) .right{
+    margin-left:0px;
+}
+#projects2 .items:nth-child(even) .left{
+    margin-left:-150px;
+}
+
+#projects2 .items .left .proj-title{
+    font-size: 1rem;
+   
+
+}
+#projects2 .items .left .proj-sub-title{
+    font-size: 1rem;
+ }
+ 
+ #projects2 .items .left .sub-slider1{
+
+margin-top:10px;
+}
+#projects2 .items .left .slideshow-container1 {
+position: relative;
+
+
+}
+
+/* Slides */
+
+#projects2 .items .left .mySlides1 {
+/* display: none;*/
+width:220px;
+text-align: center;
+color:white;
+}
+
+.star{
+color:yellow;
+font-size:28px;
+text-align: center;
+  
+}
+.sta{
+color:white;
+font-size:28px;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+ 
+
+}
+
+/* The dots/bullets/indicators */
+.dots {
+cursor: pointer;
+height: 10px;
+width: 10px;
+margin: 0 2px;
+background-color: white;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dots:hover {
+background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+#projects2 .items .left .btn{
+    top: 50px;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #070c20;
+    padding:10px;
+   
+    color:whitesmoke;
+    margin-left: 70px;
+}
+#projects2 .items .right .img{ 
+  width:450px;
+    background-size: contain;
+    background-position:center;
+    height:450px;
+    overflow:hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    position:relative;
+	
+}
+#projects2 .items .right .img::after{
+    position: absolute;
+    content:"";
+    left:0; 
+    right:0;
+    width:100%;
+    height:100%;
+ }
+#projects2 .items .right .img img{
+    object-fit:cover;
+    transition:.3s ease transform;
+}
+#projects2 .items:hover .right .img img{
+    transform:scale(1.1);
+    z-index:1;
+}
+
+/*third project*/
+
+#projects1{
+   
+    margin-top:-390px;
+}
+#projects1 .items{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    max-width:800px;
+    margin:0 auto;
+   
+}
+#projects1 .items:nth-child(even){
+    flex-direction: row-reverse;
+}
+#projects1 .items .left{
+    display:block;
+    flex:1;
+}
+#projects1 .items .right{
+    display:block;
+    flex:1;
+    margin-left: -150px;
+    background-color:var(--secondary-background-color-blur);
+	height:350px;
+    padding:3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    z-index: 2;
+}
+#projects1 .items:nth-child(even) .right{
+    margin-left:0;
+}
+#projects1 .items:nth-child(even) .left{
+    margin-left:-150px;
+}
+#projects1 .items .left .img{ 
+  width:450px;
+    background-size: contain;
+    background-position:center;
+    height:450px;
+    overflow:hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    position:relative;
+}
+#projects1 .items .left .img::after{
+    position: absolute;
+    content:"";
+    left:0; 
+    right:0;
+    width: 100%;
+    height:100%;
+ }
+#projects1 .items .left .img img{
+    object-fit:cover;
+    transition:.3s ease transform;
+}
+#projects1 .items:hover .left .img img{
+    transform:scale(1.1);
+    z-index:1;
+}
+
+#projects1 .items .right .proj-title{
+    font-size: 1rem;
+   
+
+}
+#projects1 .items .right .proj-sub-title{
+
+    font-size: 1rem;
+ }
+ 
+
+
+ 
+ #projects1 .items .right .sub-slider2{
+
+	margin-top:10px;
+}
+#projects1 .items .right .slideshow-container2 {
+  position: relative;
+
+  
+}
+
+/* Slides */
+#projects1 .items .right .mySlides2 {
+ /* display: none;*/
+  width:220px;
+  text-align: center;
+  color:white;
+}
+
+.star{
+	color:yellow;
+	font-size:28px;
+	text-align: center;
+		
+}
+.sta{
+	color:white;
+	font-size:28px;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+   
+	
+}
+
+/* The dots/bullets/indicators */
+.dot1 {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+#projects1 .items .right .btn{
+    top: 50px;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #070c20;
+    padding:10px;
+   color:whitesmoke;
+    margin-left: 70px;
+}
+
+
+  /*lap view proj sec end*/
+  
+  
+   /*lap view about section*/
+    /*lap view about section*/
+    .about{
+      margin-top: 30px;
+      text-align: center;
+    	
+		color:white;
+	}
+
+	.about p{
+    
+		padding-bottom:20px;
+    display: inline-block;
+    width:60%;
+    text-align:center;
+  
+   
+	}
+	.main{
+    margin-top: 40px;
+    padding: 0 15%;
+   	display:flex;		
+	}
+	
+	.s-box-container{
+    	width:100%;
+    	display:flex;
+    	flex-direction: column;
+		align-items:center;
+		justify-content: space-evenly;
+    
+    }
+    .s-box-container h3{
+      padding-bottom: 30px;
+      color:var(--primary-font-color);
+    }
+    .s-box-container div {
+      margin-bottom: 25px;
+    }
+	
+	
+	.main img{
+		width:70px;
+		height:70px;
+		
+		}
+  
+	
+	
+	 /*lap view about section end*/
+   /*lap view contact section*/
+
+.contact section .head {
+  margin-top:60px;
+  text-align: center;
+  
+}
+
+
+.head h3::after {
+  content: "";
+  background: rgba(166, 219, 228, 0.767);
+  display: block;
+  width: 120px;
+  height: 5px;
+  margin: 0 auto;
+}
+.head p {
+  color: var(--secondary-font-color);
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 50px;
+  
+  
+}
+.contact-section  {
+  margin-top: 40px;
+  padding: 80px 100px 20px;
+  background-color: var(--primary-background-color);
+justify-content: center;
+  align-items: center;
+  
+}
+.contact-section h4{
+  text-align: center;
+  text-transform: uppercase;
+  color:var(--primary-font-color);
+  font-size: 28px;
+}
+.contact-section  h1 {
+  text-transform: uppercase;
+  margin-top: 50px;
+  color: cornsilk;
+  text-align: center;
+}
+.title-p {
+  margin-top: 30px;
+  color: whitesmoke;
+  text-align: center;
+}
+.contact-section h1:after {
+  content: "";
+  background: rgb(62, 239, 255);
+  width: 120px;
+  height: 5px;
+  margin: 10px auto;
+}
+.contact-info .contact-btn {
+      display: inline-block;
+      background-color: var(--secondary-background-color);
+      color: white;
+      font-size: 32px;
+      padding: 7px;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      text-align: center;
+}
+.contact-info .contact-btn:hover {
+  background-color: var(--primary-font-color);
+      box-shadow: -5px 10px 40px var(--primary-font-color);
+      color: var(--secondary-background-color);
+}
+.contact-btn-icon a{
+  display: block;
+  color: white;
+  margin-top: 10px;
+}
+.contact-info .social{
+  display: flex;
+  justify-content: center;
+}
+.contact-info span{
+  color:var(--primary-font-color);
+  font-weight: 600;
+  display: block;
+}
+.contact-info .social {
+  display: flex;
+ color:white;
+  justify-content: center;
+}
+.rounded-social-buttons {
+  text-align: center;
+   display: flex;
+}
+
+.rounded-social-buttons .social-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 3.125rem;
+  height: 3.125rem;
+  border: 0.125rem solid transparent;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: #fefefe;
+  font-size: 1.5625rem;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 1.6875rem;
+  transition: all 0.5s ease;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.rounded-social-buttons div{
+  margin: 40px 20px;
+}
+/*
+.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.rounded-social-buttons .fa-whatsapp, .fa-facebook-f, .fa-envelope, .fa-instagram, .fa-phone , .fa-pinterest{
+  font-size: 25px;
+  color:azure;
+}
+
+.rounded-social-buttons .social-button.facebook {
+  background: #0746ce;
+}
+
+.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+  color: #3b5998;
+  background: #fefefe;
+  border-color: #3b5998;
+}
+
+.rounded-social-buttons .social-button.whatsapp {
+  background: #4FCE5D;
+}
+
+.rounded-social-buttons .social-button.whatsapp:hover, .rounded-social-buttons .social-button.whatsapp:focus {
+  color: #4FCE5D;
+  background: #fefefe;
+  border-color: #4FCE5D;
+  font-size:24px;
+}
+
+.rounded-social-buttons .social-button.envelope{
+  background: #007bb5;
+}
+
+.rounded-social-buttons .social-button.envelope:hover, .rounded-social-buttons .social-button.envelope:focus {
+  color: #007bb5;
+  background: #fefefe;
+  border-color: #007bb5;
+}
+
+.rounded-social-buttons .social-button.instagram {
+  background: #cc06d3;
+}
+
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+  color: #8a3ab9;
+  background: #fefefe;
+  border-color: #8a3ab9;
+}
+
+.rounded-social-buttons .social-button.phone {
+  background: #125688;
+}
+
+.rounded-social-buttons .social-button.phone:hover, .rounded-social-buttons .social-button.phone:focus {
+  color: #125688;
+  background: #fefefe;
+  border-color: #125688;
+}
+.rounded-social-buttons .social-button.pinterest{
+  background: #bb0000;
+}
+
+.rounded-social-buttons .social-button.pinterest:hover, .rounded-social-buttons .social-button.pinterest:focus {
+  color: #bb0000;
+  background: #fefefe;
+  border-color: #bb0000;
+}*/
+
+
+.contact-info span{
+  display: block;
+}
+.contact-info span .fab, .contact-info span .fas {
+  font-size: 2rem;
+padding-bottom: 0.15rem;
+color:#e91e3e;
+}
+.line{
+  margin-top:20px;
+  border-top:2px solid var(--primary-newcolor);
+}
+.contactform .forms{
+  width: 40%;
+  margin: auto 5%;
+}
+.contactform .forms form{
+  display:grid;
+  grid-template-columns:repeat(1,1fr);
+  column-gap:0.6rem;
+  color:rgb(78, 69, 69);
+}
+
+.contactform { 
+  display:flex; 
+  width: 100%;
+  padding: 0 10%;
+  margin: 30px 0;
+}
+
+.formcontrol{
+border:1.5px solid aqua;
+border-radius: 5px;
+padding:0.7rem;
+margin:0.6rem 0;
+font-family: 'Courier New', Courier, monospace;
+font-size: 1rem;
+outline:0;
+color:rgb(104, 92, 92);
+
+}
+.formcontrol:focus{
+  box-shadow: 0 0 6px -3px rgb(223, 184, 184);
+}
+.send-btn{
+  font-size: 1rem;
+  text-transform: uppercase;
+  color:black;
+  background-color:var(--primary-color);
+  border:none;
+  border-radius: 5px;
+  padding:0.7rem 1.5rem;
+  cursor:pointer;
+  transition:all 0.4s ease;
+}
+.send-btn:hover{
+  opacity:0.8;
+}
+.contactform .div img{
+  width: 100%;
+}
+.contactform .div {
+  width: 50%;
+}
+.forms{
+  display:block;
+}
+  /*contact sec end*/
+      /*lap view footer section*/	  
+      .bot-container{
+        background-color: var(--secondary-background-color);
+        width:100%;       
+        padding:50px;
+		align-items:center;		
+		
+      }
+	  .bot-container h1{
+			text-align:center;
+		color:white;
+	}  
+	  
+
+      .bot-bod {
+      padding-top:30px;
+      
+      }
+      .bot-cont {
+            color:white;
+      display:flex;
+      padding-top:20px;
+	  justify-content:center;
+		
+      }
+      .bot-cont i{
+            color:white;
+        font-size:35px;
+        padding-right:20px;
+		margin-top:-10px;
+      }
+	  
+      .bot-cont a{
+            color:white;
+        font-size:20px;
+        
+      }
+	  .bot-cont-2 {
+            color:white;
+      display:flex;
+      padding-top:20px;
+	  justify-content:center;
+		margin-left:-20px;
+      }
+      .bot-cont-2 i{
+            color:white;
+        font-size:35px;
+        padding-right:20px;
+		margin-top:-10px;
+      }
+	  
+      .bot-cont-2 a{
+            color:white;
+        font-size:20px;
+        
+      }
+	  .bot-cont-3 {
+            color:white;
+      display:block;
+      padding-top:20px;
+	  text-align:center;
+		margin-left:-20px;
+      }
+	  
+      .bot-cont-3 a{
+            color:white;
+        font-size:20px;
+		padding-bottom:10px;
+        
+      }
+	   .bot-cont-3 a{
+      color:white;
+	  font-size:20px;
+	   }
+       .fot{
+		   width:100%;
+		   height:160px;
+		   background-color:white;
+		   text-align:center;
+      }
+	   .fot-nav-links{
+		   display:flex;
+		   align-items:center;
+		   width:100%;
+		   justify-content:center;
+		   
+	   }
+	   .fot-nav-links li {
+		   font-size:21px;
+	   }
+	   
+	   .fot-nav-links li a{
+		   padding:20px;
+		   width:100px; 
+		   text-align:center;
+			
+	   }
+	   .fot-nav-links li a:hover{
+	   color:#0a3f69;;
+	   }
+	   .das{
+		   padding:20px;
+	   }
+	   .icn{
+		   font-size:28px;
+		   background-color:white;
+	   }
+	   .icn-logo i:hover{
+		   background-color :#0a3f69;
+		   color:white;
+	   }
+	   .icn-logo i{
+		   padding:20px;
+		   color:black;
+		   
+	   }
+	   .cp p{
+		   text-align:center;
+		   
+	   }
+     [data-aos="fade-left"] {
+      opacity: 0 !important;
+      -webkit-transform: translate3d(30px,0,0) !important;
+      transform: translate3d(30px,0,0) !important;
+      transition-property: opacity,-webkit-transform !important;
+      transition-property: opacity,transform !important;
+      transition-property: opacity,transform,-webkit-transform !important;
+    }
+    .aos-animate{
+      opacity: 1 !important;
+      -webkit-transform: none !important;
+      transform: none !important;
+    }
+      /*lap view footer end*/
+    
+    /* mobile view */
+    @media (max-width: 720px) {
+      .top-icn{
+		width:100%;
+		height:30px;
+		display:flex;
+		text-align:center;
+	}
+	.top-sec-itm{
+		width:70%;
+		margin-top:5px;
+	
+	}
+	.top-sec-itm a{
+		font-size:15px;
+	}
+	.top-icn-logo{
+		display:flex;
+	    justify-content:right;
+		color:black;
+		font-size:16px;
+		width:100%;
+		margin-top:4px;
+			}
+	.top-icn-logo i{
+		
+		padding-right:10px;
+	}
+	  
+	  nav .logo {
+        padding-left: 20px;
+      }
+      nav .toggler {
+        position: absolute;
+        display: flex;
+        top: 5px;
+        right: 5px;
+        z-index: 5;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+      }
+      nav .hamburger {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 4;
+        width: 30px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav .hamburger > div {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 3px;
+        background: var(--tertiary-color);
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+      }
+      nav .hamburger > div::before,
+      nav .hamburger > div::after {
+        content: '';
+        position: absolute;
+        z-index: 4;
+        border-radius: 3px;
+        top: -10px;
+        width: 100%;
+        height: 3px;
+        background: inherit;
+      }
+      nav .hamburger > div::after {
+        top: 10px;
+      }
+      nav .toggler:checked + .hamburger > div {
+        transform: rotate(135deg);
+        background-color: var(--primary-font-color);
+      }
+      nav .toggler:checked + .hamburger > div::before,
+      nav .toggler:checked + .hamburger > div::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+      nav .toggler:checked:hover + .hamburger > div {
+        transform: rotate(225deg);
+      }
+      nav .nav-links {
+        padding: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        background: var(--overlay-color);
+        opacity: 0;
+        backdrop-filter: blur(8px);
+        transition: opacity .2s;
+      }
+      nav .nav-links li a {
+        color: var(--primary-font-color);
+        letter-spacing: 1px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: unset;
+        border-left: unset;
+        margin-left: 10vw;
+        transform: translateX(-200%);
+        transition-duration: .5s ease-in;
+      }
+      nav.sticky .nav-links li a{
+      color: var(--primary-font-color);
+    }
+      nav .nav-links li a:hover {
+        background-color: unset;
+        box-shadow: unset;
+      }
+      nav .nav-links > div {
+        margin-left: 10vw;
+        margin-top: 20vw;
+        border: unset;
+        opacity: 0;
+        visibility: hidden;
+      } 
+      nav .toggler:checked ~ .nav-links {
+        opacity: 1;
+        height: 100vh;
+        padding: 25vh 0;
+        transition: opacity .2s;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(1) a {
+        transform: translateX(0);
+        transition: .6s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(2) a {
+        transform: translateX(0);
+        transition: .8s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(3) a {
+        transform: translateX(0);
+        transition: 1s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > li:nth-child(4) a {
+        transform: translateX(0);
+        transition: 1.2s ease-in-out;
+      }
+      nav .toggler:checked ~ .nav-links > div {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 150ms ease-in 1s;
+      }
+
+      #box4 {
+        animation: anim5 2s forwards 1s;
+      }
+      #box1 {
+        animation: anim4 2s forwards 1s;
+      }
+
+      header {
+        height: 160vh;
+      }
+      #box2 {
+        height: 100vh;
+        width: 100%;
+        padding: 80px 20px;
+        clip-path: polygon(0 0, 324% 0, 89% 75%, 0 100%);
+        animation: anim3 2s forwards 1s;
+      }
+      #box2 h2 {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      #box2 p {
+        font-size: 22px;
+        line-height: 32px;
+      }
+      #box3 {
+        height: 60vh;
+        width: 80%;
+        margin: 0 10%;
+        bottom: -60%;
+        left: 0;
+        animation: unset;
+      }      
+      /* .from-right {
+        transform: translateX(15%);
+        transition: opacity 150ms ease-in, transform 400ms ease-in;
+        opacity: 0;
+      }
+      .from-right.appear {
+        transform: translateX(0);
+        opacity: 1;
+      } */
+      /*mobile view team section*/
+.team-section{
+  margin-top: -30px;
+    padding:20px 50px;
+  }
+  .head {
+    text-align: center;
+    
+  }
+  .head h3 {
+   color:var(--primary-font-color); 
+   font-weight: bold;
+   
+  }
+  .head h3::after {
+    content: "";
+    background: rgba(166, 219, 228, 0.767);
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 0 auto;
+  }
+  .head p {
+    text-align: center;
+    color: var(--secondary-font-color);
+    font-size: 1rem;
+    margin-top: 20px;
+    font-weight: 700;
+  }
+  /*
+  .mainteam::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+
+ width:10%;
+  height:10%;
+  background:var(--primary-color);
+  clip-path: circle(25% at right 70%);
+}
+.mainteam::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:10%;
+  height:10%;
+  background:rgb(15, 1, 10);
+  clip-path: circle(25% at left 10%);
+}*/
+/*mobile view team section end*/
+
+      /*mobile view project section*/
+.project-section{
+    padding:50px 50px;
+  }
+  .head {
+    text-align: center;
+    }
+  .head h3 {
+    color: var(--primary-font-color);
+    font-size: 1.5rem;
+   font-weight: bold;
+
+   
+  }
+  .head h3::after {
+    content: "";
+    background: rgba(166, 219, 228, 0.767);
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 0 auto;
+  }
+  .head p {
+    color: var(--secondary-font-color);
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 20px;
+   
+  }
+ #slider-container .slides{
+   width:100%;
+ }
+ .img-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.img-slider .slider-container {
+    position: absolute;
+    width: 300%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    animation: slider 26s infinite;
+	margin-top:40px;
+}
+  
+#projects .items{
+ 
+    flex-direction: column;
+}
+#projects .items .left{
+    width:40%;
+    height:100%;
+}
+
+#projects .items .left .img{ 
+  margin-left: -50px;
+    width:300px;
+    background-size: contain;
+    background-position:center;
+   
+    overflow:hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    position:relative;
+    margin-left:-70px;
+	height:350px;
+}
+
+#projects .items .left h3{
+  color:white;
+  margin-top: -50px;
+}
+
+#projects .items .right{
+  height:300px;
+	width:180px;
+   display:block;
+    flex:1;
+   margin-left:150px;
+   background-color:var(--secondary-background-color-blur);
+    
+    padding:20px;
+    border-radius: 12px;
+    
+    box-shadow: 0 0 20px black; 
+    z-index: 2;
+	
+	margin-top:-180px;
+}
+/* Slides */
+#projects .items .right .mySlides {
+/* display: none;*/
+  width:150px;
+  text-align: center;
+  color:white;
+  height:160px;
+}
+
+.mySlides,.mySlides1,.mySlides2 p{
+  font-size: .8rem;
+}
+
+.star{
+	color:yellow;
+	font-size:20px;
+	text-align: center;
+		
+}
+.sta{
+	color:white;
+	font-size:20px;
+}
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  
+    text-align: center;
+    padding: 5px;
+   margin-right:-15px;
+	
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  margin-top: -50px;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+ 
+}
+
+#projects .items .right .btn{
+    top: 50px;
+    justify-content: center;
+    border-radius: 20px;
+  
+    margin-left:30px;
+}
+
+ /*2nd project*/
+ #projects2 .items{
+  margin-top: -140px;
+    display:flex;
+ 
+}
+#projects2 .items .right{
+    width:100%;
+    height:100%;
+   
+}
+
+
+#projects2 .items .right .img{ 
+    width:300px;
+ background-size: contain;
+ background-position:center;
+ height:350px;
+ overflow:hidden;
+ border-radius: 12px;
+ box-shadow: 0 0 20px black; 
+ position:relative;
+ margin-right: -20px;
+}
+#projects2 .items .right h3{
+  color:white;
+  margin-top: -30px;
+  margin-right: 70px;
+}
+#projects2 .items .left{
+	height:320px;
+	width:180px;
+    display:block;
+    flex:1;
+    background-color:var(--secondary-background-color-blur);
+     padding:20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px black; 
+    z-index: 2;
+
+	margin-top:340px;
+	margin-right:-170px;
+	
+}
+/* Slides */
+#projects2 .items .left .mySlides1 {
+/* display: none;*/
+  width:150px;
+  text-align: center;
+  color:white;
+  height:160px;
+}
+
+.star{
+	color:yellow;
+	font-size:20px;
+	text-align: center;
+		
+}
+.sta{
+	color:white;
+	font-size:20px;
+}
+
+ /* The dot/bullet/indicator container */
+.dot-container {
+  
+    text-align: center;
+    padding: 5px;
+   
+	
+}
+
+/* The dots/bullets/indicators */
+.dots {
+  cursor: pointer;
+  margin-top: -50px;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+#projects2 .items .left .btn{
+    top: 20px;
+    justify-content: center;
+    border-radius: 20px;
+   
+    margin-left: 30px;
+   }
+
+ /*3rd project*/
+  
+#projects1 .items{
+ margin-top: 20px;
+ flex-direction: column;
+}
+#projects1 .items .left{
+ width:60%;
+ height:50%;
+ 
+}
+
+#projects1 .items .left .img{ 
+  margin-left: -50px;
+    width:300px;
+ background-size: contain;
+ background-position:center;
+ height:350px;
+ overflow:hidden;
+ border-radius: 12px;
+ box-shadow: 0 0 20px black; 
+ position:relative;
+}
+#projects1 .items .left h3{
+  color:white;
+  margin-top: -25px;
+}
+
+
+
+#projects1 .items .right{
+  
+ height:300px;
+	width:180px;
+   display:block;
+    flex:1;
+   margin-left:150px;
+   background-color:var(--secondary-background-color-blur);
+    
+    padding:10px;
+    border-radius: 12px;
+    
+    box-shadow: 0 0 20px black; 
+    z-index: 2;
+	
+	margin-top:-180px;
+}
+
+/* Slides */
+#projects1 .items .right .mySlides2 {
+/* display: none;*/
+margin-left: 10px;
+
+  width:140px;
+  text-align: center;
+  color:white;
+  height:160px;
+}
+
+.star{
+	color:yellow;
+	font-size:20px;
+	text-align: center;
+		
+}
+.sta{
+	color:white;
+	font-size:20px;
+}
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  margin-top: 20px;
+  margin-left: -10px;
+    text-align: center;
+    padding: 24px;
+   
+	
+}
+
+/* The dots/bullets/indicators */
+.dot1 {
+  cursor: pointer;
+  margin-top: -20px;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+
+#projects1 .items .right .btn{
+    top: 40px;
+    justify-content: center;
+    border-radius: 20px;
+   
+   margin-left:40px;
+   padding-bottom: 10px;
+}
+
+
+/*[proj end*/
+ /*lap view about section*/
+ /*mobile view about section */
+ .head h3  {
+    
+    font-size: 2rem;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+ .about p {
+   width: 80%;
+ }
+		.main{
+			
+			width: 100%;	
+			margin-right: 0;
+      display: block;
+			
+		}
+		.main img{
+			width:50px;
+			height:50px;
+			
+		}
+		.s-box-container{
+			padding-right: 0;
+			margin:0;
+		}
+		.s-box-container h3{
+		font-size: 15px;
+    margin-right: auto;
+    margin-left: 40%;
+    padding-bottom: 0; /* mobile conact section */
+    }
+    .s-box-container div {
+      display: flex;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+ 
+/*mobile view about section 
+h1{
+			font-weight:1rem;
+		}
+		p{
+		padding-bottom:20px;
+		}
+		.main{
+      width:100%;	
+		
+			
+      margin:0;
+			
+		}
+		.main img{
+			width:50px;
+			height:50px;
+			
+		}
+    /*
+    .s-box-container{
+		padding-left:15px;
+    margin:0;
+    
+    }
+		.s-box-container h3{
+		font-size:15px;
+		color:white;
+    margin-right: 0;
+		}
+			
+	/*mobile view about section end*/
+   /* mobile conact section */
+
+
+   .contact-section{
+    padding:50px 50px;
+  }
+  .head {
+    text-align: center;
+    
+  }
+  .head h3 {
+    color: var(--primary-font-color);
+    font-size: 1.5rem;
+   font-weight: bold;
+   
+  }
+  .head h3::after {
+    content: "";
+    background: rgba(166, 219, 228, 0.767);
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 0 auto;
+  }
+  .head p {
+    text-align: center;
+    color: var(--secondary-font-color);
+    font-size: 1rem;
+    margin-top: 20px;
+    font-weight: 700;
+  }
+  .contact-info{
+    
+  text-align: center;
+}
+  .contact-info .social{
+  display: block;
+ 
+  justify-content: center;
+}
+.contact-info > div span{
+display: flex;
+color:var(--primary-font-color);
+}
+.contact-info .name{
+  display:none;
+}
+.social span a{
+  margin-left: -35px;
+}
+.social .text{
+  color:var(--primary-font-color);
+}
+
+.head h3{
+  margin-top: 70px;
+  color: var(--primary-font-color);
+}
+.contactform{
+  display: block;
+  padding: 0;
+}
+.lines .contactform{
+  margin-top: -10px;
+  display:block;
+}
+.contactform .forms{
+  overflow: visible;
+  width: 100%;
+  margin: 0;
+}
+.formcontrol{
+width:100%;
+border:1.5px solid rgb(39, 226, 7);
+border-radius: 5px;
+padding:0.5rem;
+margin:0.6rem 0;
+font-family: 'Courier New', Courier, monospace;
+font-size: 1rem;
+outline:0;
+
+}
+
+.contact-info .social {
+ 
+  display: block;
+ 
+  justify-content: center;
+}
+.rounded-social-buttons .social-button {
+  margin-left: -105px;
+}
+.rounded-social-buttons{
+  display: block;
+}
+.rounded-social-buttons >div span .name{
+  display: none;
+  margin-left: -25px;
+  display: block;
+}
+.rounded-social-buttons .text{
+  margin-left: 8px;
+  display: block;
+}
+.rounded-social-buttons div {
+  margin: 40px 0;
+  align-items: center;
+}
+.send-btn{
+  font-size: 1rem;
+  padding:0.1rem 1.1rem;
+}
+.contactform .div{
+width:100%;
+}
+.contactform .div img{
+  height: 225px;
+}
+   /*mobile contact section end */
+    /*footer section*/
+
+.fot-box{
+		display:block;
+	}	
+	.bot-container{
+		height:auto;
+		width:auto;
+	   
+		
+		}
+	
+	.bot-cont i{
+		font-size:25px;
+		padding-right:10px;
+		padding-top:20px;
+	}	
+		
+	.bot-cont p{
+		font-size:15px;
+		margin-top:2px;
+		margin-top:10px;
+	}	
+	.bot-cont-2{
+		
+		margin:0;
+	}
+	.bot-cont-2 i{
+		font-size:25px;
+		padding-right:10px;
+		padding-top:20px;
+	}	
+		
+	.bot-cont-2 p{
+		font-size:15px;
+		margin-top:10px;
+	}	
+	
+	.bot-cont-3 p{
+		font-size:15px;
+		margin-top:10px;
+	}
+	.fot{
+		width:100%;
+		height:auto;
+	}
+	.fot-nav-links li a{
+    padding:10px;
+    width:100px; 
+    text-align:center;
+  }
+	.fot-nav-links li {
+    font-size:18px;
+  }
+  .das{
+    padding:10px;
+  }
+  .icn-logo {
+    padding-bottom:10px;
+  }
+  .icn-logo i{
+    padding:10px;
+    font-size:20px;
+  }
+     [data-aos="left-new"] {
+      opacity: 0;
+      -webkit-transform: translate3d(30px,0,0);
+      transform: translate3d(30px,0,0);
+      transition-property: opacity,-webkit-transform;
+      transition-property: opacity,transform;
+      transition-property: opacity,transform,-webkit-transform;
+    }
+    .aos-animate{
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  /*footer section end*/
+    }
+    /* mobile view end */
+	</style>
+   
+</head>
+<body>
+<div class="top-icn" id="box4">
+<div class="top-sec-itm">
+<a href="mailto:official@dreamholders">official@dreamholders.tech</a>
+</div>
+<div>
+	<div class="top-icn-logo">
+	
+
+    <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/dream_holders?t=VYvlSw5dA20paQb3BdklDA&s=09" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="mailto:official@dreamholders.tech" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    </div>
+    </div>
+    <!-- nav section -->
+  <nav id="box1">
+    <div class="logo">
+      <h2><a href="index.html">DreamHolders</a></h2>
+    </div>
+    <input type="checkbox" class="toggler" onmousedown="hamburgerSound.play()">
+    <div class="hamburger">
+      <div></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" >Contact</a></li>
+      <div>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onmousedown="switchSound.play()">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
+    </ul>
+  </nav>
+    <!-- nav section end -->
+
+    <!-- header section -->
+  <header>
+    <div id="box2">
+      <h2>Do you think a simple pretty website is enough to get good result for your buiseness?</h2>
+      <p>We here to provide you an creative and custom websites that engage users & attracts you at affordable prices!!!</p>
+      <a href="appointement/index.html" onmouseover="hoverSound.play()">Build Yours</a>
+      <!-- <a href="#" onmouseover="hoverSound.play()"><i class="fa fa-github"></i></a>
+      <a href="#" onmouseover="hoverSound.play()"><i class="fa fa-mail-reply"></i></a> -->
+    </div>
+    <div id="box3" class="slide-in from-right" data-aos="left-new"></div>
+  </header>
+    <!-- header section -->
+
+    <!--team section-->
+  <section id="team" class="team-section">
+    <div class="head">
+      <h3>OUR TEAM</h3>
+      <p>Meet our Amazing Team Members.we here working in a "Real world" web production environment with minded teens,We can provide you a profesional and user engage websites.</p>
+    </div> <!-- head -->
+    <section class="mainteam"> 
+      <div class="container">
+        <div class="card" data-aos="zoom-in">
+          <div class="content">
+            <div class="imgbx"><img src="umar.JPG"length="200"width="200"></div>
+            <div class="contntbx">
+              <h3>Umar</h3>
+              <h4>
+                <span>Website Developer</span><br>
+                <span>Creative Designer</span>
+              </h4>
+              <a href="https://instagram.com/explore_of_crazy?utm_medium=copy_link">More Info</a>
+            </div><!--contntbx-->
+          </div><!-- content -->
+          <ul class="socme">
+            <li style="--i:1">
+              <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            </li>
+            <li style="--i:2"> 
+              <a href="https://instagram.com/explore_of_crazy?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li style="--i:3">
+              <a href="https://github.com/Umar1618"><i class="fab fa-github" target="_blank"></i></a>
+            </li>
+          </ul>
+        </div><!--card1-->
+        <div class="card" data-aos="zoom-in">
+          <div class="content">
+            <div class="imgbx"><img src="jamal.jpg"length="200"width="200"></div>
+            <div class="contntbx">
+              <h3>Jamal</h3>
+              <h4>
+                <span>Website Coder</span><br>
+                <span>Content Creator</span>
+              </h4>
+              <a href="https://instagram.com/jam_eu_jam?utm_medium=copy_link">More Info</a>
+            </div><!--contntbx-->
+          </div><!-- content -->
+          <ul class="socme">
+            <li style="--i:1">
+              <a href="https://api.whatsapp.com/send?phone=+916374291341" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            </li>
+            <li style="--i:2"> 
+              <a href="https://instagram.com/jam_eu_jam?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li style="--i:3">
+              <a href=""><i class="fab fa-github" target="_blank"></i></a>
+            </li>
+          </ul>
+        </div><!--card2-->
+        <div class="card" data-aos="zoom-in">
+          <div class="content">
+            <div class="imgbx"><img src="jeeva.jpg"length="200"width="200"></div>
+            <div class="contntbx">
+              <h3>Jeeva</h3>
+              <h4>
+                <span>Website Debugger</span><br>
+                <span>Creative Competitor</span>
+              </h4>
+              <a href="https://instagram.com/jeeva4736?utm_medium=copy_link">More Info</a>
+            </div><!--contntbx-->
+          </div><!-- content -->
+          <ul class="socme">
+            <li style="--i:1">
+              <a href="https://api.whatsapp.com/send?phone=+916383038993" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            </li>
+            <li style="--i:2"> 
+              <a href="https://instagram.com/jeeva4736?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li style="--i:3">
+              <a href=""><i class="fab fa-github" target="_blank"></i></a>
+            </li>
+          </ul>
+        </div><!--card3-->
+      </div><!-- container -->
+    </section>
+  </section>
+    <!-- team section end -->
+
+    <!-- project section -->
+  <section class="project-section" id="project">
+    <div class="head"><!--cobtact bg-->
+      <h3>OUR PROJECT</h3>
+      <p>
+      Do you expect on-budget,on-time site plan?  you can check out our projects below!!. our team will likely be foused on creating the best layout,content,design on your wrebsites.  </p>
+    </div> <!-- head -->
+    <section id="projects">
+      <div class="container">
+        <div class="all-items">
+          <div class="items">
+            <div class="left" data-aos="fade-right">
+              <div class="img">
+                <Section class="img-slider">
+              <div class="slider-container">
+    
+              <div class="slide">
+                <img src="image1.jpg">
+              </div>
+    
+              <div class="slide">
+                <img src="image2.jpg">
+              </div>
+              <div class="slide">
+                <img src="image3.jpg">
+              </div><!--slide-->
+    
+              </div><!--slide container-->
+            </Section><!-- img slide-->
+            
+              </div><!--image-->
+              
+            </div><!--left-->
+            <div class="right" data-aos="fade-left">
+              
+              
+              <div class="sub-slider">
+                <div class="slideshow-container">
+                  <div class="mySlides">
+                    <p>
+                      This website developed for printing company who provide advance and tech nical multiple types of flexes. We made them easier clients and orders by our fantastic userinterface site. We have fixed social Medias inthe page for easy client contact and leads the company to higher profit.
+                    </p>
+                  </div>
+                  <div class="mySlides">
+                    <p>
+                      We here used - js for providing good interactive and -css for perfect attractive.The back-end here used made this page much UI easy to access and understand.And mainly photoshop we worked here gives the best gallery view ,which attracts the customer and helpful!!
+                    </p>
+                  </div>
+                  <div class="mySlides">
+                    <p>
+                      This website developed for printing company who provide advance and tech nical multiple types of flexes. We made them easier clients and orders by our fantastic userinterface site. We have fixed social Medias inthe page for easy client contact and leads the company to higher profit.
+                    </p>
+                  </div>
+                </div><!--slideshow container-->
+                <div class="dot-container">
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+                </div><!--dotcontainer-->
+              </div><!--subslider-->
+              <div class="button">
+                <a href="" class="btn">check out</a>
+              </div><!--button-->
+            </div><!--right-->
+          </div><!--items-->
+          </div><!--allitems-->
+        </div><!--containr-->
+      </section><!-- projects -->
+      <section id="projects2">
+        <div class="container">
+          <div class="all-items">
+            <div class="items">
+              <div class="left" data-aos="fade-right">
+                
+                <div class="sub-slider1">
+                  <div class="slideshow-container1">
+                    <div class="mySlides1">
+                      <p>
+                        Yes,this is our own portfolio site!! You can fetch details regarding us in this site.Anyone can contact us through this.its obviously user interface!! You can contact us any time!!!
+                      </p>
+                    </div>
+                    <div class="mySlides1">
+                      <p>
+                        This site was build interstingly with many frameworks like bootstrap, figma which made the page more designated and attractive and SASS used to facilitates all actions accordingly!!
+                      </p>
+                    </div>
+                    <div class="mySlides1">
+                      <p>
+                        Yes,this is our own portfolio site!! You can fetch details regarding us in this site.Anyone can contact us through this.its obviously user interface!! You can contact us any time!!!
+                      </p>
+                    </div>
+                  </div><!--slideshow container-->
+                  <div class="dot-container">
+                    <span class="dots" onclick="currentSlide(1)"></span> 
+                    <span class="dots" onclick="currentSlide(2)"></span> 
+                    <span class="dots" onclick="currentSlide(3)"></span> 
+                  </div><!--dotcontainer-->
+                </div><!--subslider-->
+                <div class="button">
+                  <a href="" class="btn">check out</a>
+                </div><!--button-->
+              </div><!--left-->
+              <div class="right" data-aos="fade-left">
+                <div class="img">
+                  <Section class="img-slider">
+              <div class="slider-container">
+    
+              <div class="slide">
+                <img src="image2.jpg">
+              </div>
+    
+              <div class="slide">
+                <img src="image4.jpg">
+              </div>
+              <div class="slide">
+                <img src="image1.jpg">
+              </div><!--SLIDE-->
+    
+              </div><!--SLIDERCONTAINER-->
+            </Section><!--img SLIDER-->
+            
+                </div><!--img-->
+                
+              </div><!--right-->
+            </div><!--items-->
+          </div><!--allitems-->
+        </div><!--containr-->
+      </section><!-- projects1 -->
+      <section id="projects1">
+        <div class="container">
+          <div class="all-items">
+            <div class="items">
+              <div class="left" data-aos="fade-right">
+                <div class="img">
+                  <Section class="img-slider">
+              <div class="slider-container">
+    
+              <div class="slide">
+                <img src="pp1.jpg">
+              </div>
+    
+              <div class="slide">
+                <img src="pp2.jpg">
+              </div>
+              <div class="slide">
+                <img src="pp3.jpg">
+              </div>
+    
+              </div>
+            </Section>
+                </div>
+                
+            </div>
+            <div class="right" data-aos="fade-left">
+                
+                <div class="sub-slider2">
+                  <div class="slideshow-container2">
+                    <div class="mySlides2">
+                      <p>
+                        This website was especially focused and designed for transportation purpose,which made you the easier and fastest transport service very Usefull in our day today life.The goal of site is to be reduce people roaming pressure.
+                      </p>
+                  </div>
+                  <div class="mySlides2">
+                    <p>
+                      One adorable site, we created using tools like Github, that brings together Concepts such interaction design  ,visual design, and information architechture and PHP here with MySQL provides our page best back-end source !!!
+                    </p>
+                  </div>
+                  <div class="mySlides2">
+                    <p>
+                      One adorable site, we created using tools like Github, that brings together Concepts such interaction design  ,visual design, and information architechture and PHP here with MySQL provides our page best back-end source !!!
+                    </p>
+                  </div>                  
+                </div><!--slideshow container-->
+                <div class="dot-container">
+                  <span class="dot1" onclick="currentSlide(1)"></span> 
+                  <span class="dot1" onclick="currentSlide(2)"></span> 
+                  <span class="dot1" onclick="currentSlide(3)"></span> 
+                </div><!--dotcontainer-->
+              </div><!--subslider-->
+              <div class="button">
+                <a href="" class="btn">check out</a>
+              </div><!--button-->
+            </div><!--right-->
+          </div><!--items-->
+        </div><!--allitems-->
+      </div><!--containr-->
+    </section><!-- project -->
+  </section>
+    <!-- project section end -->
+ 
+    <!-- about section -->
+  <section id="about" class="about">
+  <div class="head">
+    <h3>About Us</h3>
+  </head>
+    <p>
+      we offer a variety of website design and devlopement services from creating mobile web developement solutions,and responsive Websites.we provide your websites user interface  by using all those softwares listed below!!!
+    </p>
+  </div>
+    <div class="main">
+      <div class="s-box-container">
+        <div>
+          <img src="html.png" />
+          <h3>HTML 5</h3>
+        </div>
+        <div>
+          <img src="github.png" />
+          <h3>Github</h3>
+        </div>
+        <div>
+          <img src="php.png" />
+          <h3>PHP</h3>
+        </div>
+      </div>
+      <div class="s-box-container">
+        <div>
+          <img src="css.png" />
+          <h3>CSS 3</h3>
+        </div>
+        <div>
+          <img src="node.png" />
+          <h3>NodeJS</h3>
+        </div>
+        <div>
+          <img src="python.png" />
+          <h3>Python</h3>
+        </div>
+      </div>
+      <div class="s-box-container">
+        <div>
+          <img src="js.png" />
+          <h3>Javascript</h3>
+        </div>
+        <div>
+          <img src="bootstrap.png" />
+          <h3>Bootstrap 4</h3>
+        </div>
+        <div>
+          <img src="Photoshop.png" />
+          <h3>Photoshop</h3>
+        </div>
+      </div>
+      <div class="s-box-container">
+        <div>
+          <img src="react.png" />
+          <h3>ReactJS</h3>
+        </div>
+        <div>
+          <img src="ts.png" />
+          <h3>Typescript</h3>
+        </div>
+        <div>
+          <img src="figma.png" />
+          <h3>Figma</h3>
+        </div>
+      </div>    
+    </div>
+  </section>
+   <!-- about section end-->
+   
+   <!--contact section-->
+  <section class="contact-section" id="contact">
+    <div class="head"><!--cobtact bg-->
+      <h3>Contact Us</h3>
+      <p>
+        You can cotntact us for more detials and further latest updates.
+      </p>
+    </div> <!-- head -->
+    <div class="contact"> <!--cobtact body-->
+      <div class="contact-info">
+        <div class="social">
+          <div class="rounded-social-buttons">
+            <div class="contact-btn-icon">
+              <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank" onmouseover="hoverSound.play()" class="contact-btn"><i class="fa fa-whatsapp" aria-hidden="true" ></i></a>
+              <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank">Whatsapp</a>
+              <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank">+918675280622</a>
+            </div>
+            <div class="contact-btn-icon">
+              <a href="mailto:official@dreamholders.tech" onmouseover="hoverSound.play()" target="_blank" class="contact-btn"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+              <a href="mailto:official@dreamholders.tech" target="_blank">E-mail</a>
+              <a href="mailto:official@dreamholders.tech"target="_blank">official@dreamholders.tech</a>
+            </div>
+            <div class="contact-btn-icon">
+              <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" onmouseover="hoverSound.play()" target="_blank" class="contact-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank">Instagram</a>
+              <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank">@dream_holders</a>
+            </div>
+            <div class="contact-btn-icon">
+              <a href="https://twitter.com/dream_holders?t=VYvlSw5dA20paQb3BdklDA&s=09" onmouseover="hoverSound.play()" target="_blank" class="contact-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="https://twitter.com/dream_holders?t=VYvlSw5dA20paQb3BdklDA&s=09" target="_blank">Twitter</a>
+              <a href="https://twitter.com/dream_holders?t=VYvlSw5dA20paQb3BdklDA&s=09" target="_blank">@dream_holders</a>
+            </div>
+          </div>
+        </div>
+      </div><!-- cotact info -->
+      <h4>Keep in touch with us!!</h4>
+      <div class="line">
+        <div class="contactform">
+          <div class="forms" data-aos="fade-right">
+            <form action="insert.php" method="post">
+              <input type="text" name="name" class="formcontrol" placeholder="Name">
+              <input type="email" name="email" class="formcontrol" placeholder="Email-id">
+              <input type="number" name="phone" class="formcontrol" placeholder="Phone">
+              <a>
+                <input type="submit" name="submit" class="send-btn">
+              </a>
+            </form>
+          </div>
+          <div class="div" data-aos="fade-left">
+            <img src="jam123.png" alt="">
+          </div>
+        </div><!-- cotact form -->
+      </div>
+    </div><!-- cotact body-->
+  </section>
+    <!-- cotact section end -->
+    
+    <!-- footer section -->
+  <footer>
+  
+    <div class="bot-container">
+      <h1>Hello guys!</h1>
+	  
+      <div class="bot-bod">
+        <div class="bot-cont">
+          <i class="fa fa-globe"></i>
+          <a href="appointement/index.html">Affordable Websites for u!!..</a>
+        </div>
+        <div class="bot-cont">
+          <i class="fa fa-users"></i>
+          <a href="appointement/index.html">We here to provide u Website that engage users!!!</a> 
+        </div>
+		<div class="bot-cont-2">
+          <i class="fa fa-question"></i>
+          <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank">Wanna be a developer??</a>
+        </div>
+        <div class="bot-cont-2">
+          <i class="fa fa-tasks"></i>
+          <a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank">Wanna learn something about Websites?? </a> 
+        </div>
+		<div class="bot-cont-2">
+           <i class="fa fa-phone"></i>
+          <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank">contact us immediately </a> 
+		  
+        </div>
+		<div class="bot-cont-3">
+      <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank">Whatsapp :</a>
+      <a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank">+918675280622</a>
+		</div>
+		
+    </div>
+  </div>
+    
+	
+	<div class="fot">
+	<ul class="fot-nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <span class="das">|</span>
+    <li><a href="#team">Team</a></li>
+    <span class="das">|</span>
+    <li><a href="#about">About</a></li>
+    <span class="das">|</span>
+    <li><a href="#contact">Contact</a></li>
+  </ul>	
+	
+	
+	<div class="icn">
+	<div class="icn-logo">
+<a href="https://api.whatsapp.com/send?phone=+918675280622" target="_blank" ><i class="fa fa-whatsapp"></i></a>
+<a href="https://www.instagram.com/invites/contact/?i=isewg38vim3v&utm_content=msbk0r0" target="_blank" ><i class="fab fa-instagram"></i></a>
+<a href="mailto:official@dreamholders.tech"target="_blank" ><i class="fa fa-envelope"></i></a>
+<a href="https://twitter.com/dream_holders?t=VYvlSw5dA20paQb3BdklDA&s=09" target="_blank" ><i class="fa fa-twitter"></i></a>
+</div>
+	</div>
+	<div class="cp">
+	<p>@copyright DreamHolders</p>
+	</div>
+	</div>
+	
+  </footer>
+    <!-- footer section end -->
+ 
+  <script>
+    //  nav  bar effect on scroll
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("nav");
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+    //  nav  bar effect on scroll end
+
+    // theme 
+    const checkbox = document.getElementById('checkbox');
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('light');
+    });
+    // theme end
+    var switchSound = new Audio();
+    switchSound.src = "switchSound.wav" 
+    var hoverSound = new Audio();
+    hoverSound.src = "hoverSound.wav"
+    var hamburgerSound = new Audio();
+    hamburgerSound.src = "hamburgerSound.wav"
+
+    // slide-in section
+    const sliders = document.querySelectorAll(".slide-in");
+
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -250px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(
+      entries,
+      appearOnScroll
+    ) {``
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptions);
+
+    sliders.forEach(slider => {
+      appearOnScroll.observe(slider);
+    });
+    // slide-in section end
+
+    
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n){
+   {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+{
+  var i;
+  var slides = document.getElementsByClassName("mySlides1");
+  var dots = document.getElementsByClassName("dots");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+
+
+}
+{
+  var i;
+  var slides = document.getElementsByClassName("mySlides2");
+  var dots = document.getElementsByClassName("dot1");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+
+
+}
+}
+window.onload= function () {
+ setInterval(function(){ 
+     plusSlides(1);
+ }, 3000);
+ }
+  </script>
+  <!-- animation on scroll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 300,
+        duration: 1400
+      });
+    </script>
+  
+</body>
+</html>
